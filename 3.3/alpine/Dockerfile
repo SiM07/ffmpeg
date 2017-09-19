@@ -283,9 +283,9 @@ RUN  \
         --enable-libxvid \
         --enable-gpl \
         --enable-libx264 \
-        #--enable-nonfree \
-        #--enable-openssl \
-        #--enable-libfdk_aac \
+        --enable-nonfree \
+        --enable-openssl \
+        # --enable-libfdk_aac \
         --enable-postproc \
         --enable-small \
         --enable-version3 \
@@ -316,6 +316,8 @@ MAINTAINER  Julien Rottenberg <julien@rottenberg.info>
 CMD         ["--help"]
 ENTRYPOINT  ["ffmpeg"]
 WORKDIR /opt/ffmpeg
+
+RUN apk add libgomp fontconfig
 
 COPY --from=build /usr/local /usr/local
 
